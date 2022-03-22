@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Player.css';
-import drums from '../../tracks/DRUMS.mp3';
-import tambourine from '../../tracks/_tambourine_shake_higher.mp3';
 import { TRACKS } from '../../utils/constants';
 import Track from '../Track/Track';
 
@@ -11,13 +9,10 @@ import { IoStop } from 'react-icons/io5';
 import { IoRepeat } from 'react-icons/io5';
 
 const Player = () => {
-  const [trackArray, setTrackArray] = useState(TRACKS);
-  const [isLooping, setIsLooping] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  const audioElement = useRef();
   const progressBar = useRef();
   const animationRef = useRef();
 
@@ -26,13 +21,13 @@ const Player = () => {
     setIsPlaying(!prevValue);
 
     if (!prevValue) {
-      trackArray.forEach((track) => {
-        track.play();
+      TRACKS.forEach(({ audio }) => {
+        audio.play();
         animationRef.current = requestAnimationFrame(whilePlaying);
       });
     } else {
-      trackArray.forEach((track) => {
-        track.pause();
+      TRACKS.forEach(({ audio }) => {
+        audio.pause();
         cancelAnimationFrame(animationRef.current);
       });
     }
@@ -46,11 +41,14 @@ const Player = () => {
     // }
   };
 
+  //   console.log('current time:', TRACKS[0].currentTime);
+  //   console.log('duration:', TRACKS[0].duration);
+
   const stopPlay = () => {
     setIsPlaying(false);
-    trackArray.forEach((track) => {
-      track.pause();
-      track.currentTime = 0;
+    TRACKS.forEach(({ audio }) => {
+      audio.pause();
+      audio.currentTime = 0;
     });
     // audioElement.current.pause();
     // audioElement.current.currentTime = 0;
@@ -58,22 +56,36 @@ const Player = () => {
 
   const toggleMute = (trackID) => {
     trackID.muted = !trackID.muted;
-    console.log(trackID.duration);
+    // console.log(trackID.duration);
   };
 
   const toggleLoop = () => {
-    trackArray.forEach((track) => {
-      track.loop = !track.loop;
+    // const prevValue = isLooping;
+    // setIsLooping(!prevValue);
+
+    TRACKS.forEach(({ audio }) => {
+      audio.loop = !audio.loop;
     });
   };
 
-  const trackDuration = TRACKS[0].duration;
+  const trackDuration = TRACKS[0].audio.duration;
 
   useEffect(() => {
     const seconds = Math.floor(trackDuration);
     setDuration(seconds);
     progressBar.current.max = seconds;
-  }, [TRACKS[0]?.loadedmetadata, TRACKS[0]?.readyState, trackDuration]);
+  }, [
+    TRACKS[0].audio?.loadedmetadata,
+    TRACKS[0].audio?.readyState,
+    trackDuration,
+  ]);
+
+  useEffect(() => {
+    if (currentTime == 17 && TRACKS[0].audio.loop === false) {
+      console.log('something');
+      setIsPlaying(false);
+    }
+  }, [currentTime]);
 
   const calculateTime = (sec) => {
     const minutes = Math.floor(sec / 60);
@@ -84,13 +96,15 @@ const Player = () => {
   };
 
   const whilePlaying = () => {
-    progressBar.current.value = TRACKS[0].currentTime;
+    progressBar.current.value = TRACKS[0].audio.currentTime;
     setCurrentTime(progressBar.current.value);
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const changeRange = () => {
-    TRACKS[0].currentTime = progressBar.current.value;
+    TRACKS.forEach(({ audio }) => {
+      audio.currentTime = progressBar.current.value;
+    });
     setCurrentTime(progressBar.current.value);
   };
 
@@ -106,7 +120,7 @@ const Player = () => {
           </div>
         ))}
       </div>
-      <audio ref={audioElement} src={drums} preload='metadata' loop></audio>
+      {/* <audio ref={audioElement} src={drums} preload='metadata' loop></audio> */}
 
       <div className='controls'>
         <button onClick={togglePlayPause}>
@@ -115,7 +129,7 @@ const Player = () => {
         <button onClick={stopPlay}>
           <IoStop />
         </button>
-        <button onClick={toggleLoop}>
+        <button className='loop' onClick={toggleLoop}>
           <IoRepeat />
         </button>
       </div>
@@ -123,6 +137,8 @@ const Player = () => {
       <input
         onChange={changeRange}
         type='range'
+        min='0'
+        max='17'
         defaultValue='0'
         ref={progressBar}
       />

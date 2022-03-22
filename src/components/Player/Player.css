@@ -8,3 +8,11 @@
   background: red;
   height: 100px;
 }
+
+.loop {
+  fill: white;
+}
+
+.loop:focus {
+  background: purple;
+}

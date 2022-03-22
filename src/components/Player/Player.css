@@ -1,10 +1,18 @@
-.audio {
+/* .audio {
   width: 500px;
   height: 50px;
-  background-color: aqua;
+  background-color: var(--clr-base-light);
+} */
+
+/* .audio:nth-of-type(2) {
+  background-color: var(--clr-base-normal);
 }
 
-.controls {
+.audio:nth-of-type(3) {
+  background-color: var(--clr-base-darker);
+} */
+
+/* .controls {
   background: red;
   height: 100px;
 }
@@ -15,4 +23,12 @@
 
 .loop:focus {
   background: purple;
-}
+} */
+
+/* .player {
+  align-self: baseline;
+  background-color: #c9c9c915;
+  border-top: 1px solid #4b4b4b27;
+  border-bottom: 1px solid #c9c9c95b;
+  border-bottom: 3px solid #c9c9c91a;
+} */

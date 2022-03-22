@@ -1,0 +1,19 @@
+:root {
+  /* Font families */
+  --ff: 'Montserrat', sans-serif;
+
+  /* Colors */
+  --clr-background: #fdfdfd;
+  --clr-light-gray: #c9c9c9;
+  --clr-dark-blue: hsl(216, 55%, 29%);
+  --clr-base: 5;
+  --clr-base-light: hsla(var(--clr-base), 45%, 50%);
+  --clr-base-normal: hsla(var(--clr-base), 45%, 38%);
+  --clr-base-darker: hsla(var(--clr-base), 45%, 35%);
+  --clr-base-darkest: hsla(var(--clr-base), 45%, 25%);
+  --clr-base2: 185;
+  --clr-base2-light: hsl(var(--clr-base2), 45%, 50%);
+  --clr-base2-normal: hsla(var(--clr-base2), 45%, 38%);
+  --clr-base2-darker: hsla(var(--clr-base2), 45%, 35%);
+  --clr-base2-darkest: hsla(var(--clr-base2), 45%, 25%);
+}

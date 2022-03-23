@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/looper/static/css/main.4e61b510.css",
+    "main.js": "/looper/static/js/main.2e3d59d0.js",
+    "static/js/787.2d101da8.chunk.js": "/looper/static/js/787.2d101da8.chunk.js",
+    "static/media/B VOC.mp3": "/looper/static/media/B VOC.5ffa9906c5972f1fb03c.mp3",
+    "static/media/DRUMS.mp3": "/looper/static/media/DRUMS.f0332952662d2e1f5d15.mp3",
+    "static/media/HE HE VOC.mp3": "/looper/static/media/HE HE VOC.fd659059c1d55320658f.mp3",
+    "static/media/HIGH VOC.mp3": "/looper/static/media/HIGH VOC.f09f6e03383b234370d0.mp3",
+    "static/media/JIBRISH.mp3": "/looper/static/media/JIBRISH.d23f0b604ef55163d7e6.mp3",
+    "static/media/LEAD 1.mp3": "/looper/static/media/LEAD 1.f8658c330b3d07661550.mp3",
+    "static/media/UUHO VOC.mp3": "/looper/static/media/UUHO VOC.bc87006a5f29b4cfa918.mp3",
+    "static/media/_tambourine_shake_higher.mp3": "/looper/static/media/_tambourine_shake_higher.2ceb47bfdbea6e81aae9.mp3",
+    "static/media/Montserrat-Bold.woff": "/looper/static/media/Montserrat-Bold.8ce6f4ee86ac2cbc9b0f.woff",
+    "static/media/Montserrat-Regular.woff": "/looper/static/media/Montserrat-Regular.21e541a4a652a7fa0d6a.woff",
+    "static/media/Montserrat-Bold.woff2": "/looper/static/media/Montserrat-Bold.6392e617a6763a39cccc.woff2",
+    "static/media/Montserrat-Regular.woff2": "/looper/static/media/Montserrat-Regular.54e5ab38e7cf2d5499e6.woff2",
+    "static/media/moveo-logo.svg": "/looper/static/media/moveo-logo.cb5200783b4c6f1e53e166b569ab1929.svg",
+    "index.html": "/looper/index.html",
+    "static/media/sq.svg": "/looper/static/media/sq.fa4619b222a113cc2bf2.svg",
+    "main.4e61b510.css.map": "/looper/static/css/main.4e61b510.css.map",
+    "main.2e3d59d0.js.map": "/looper/static/js/main.2e3d59d0.js.map",
+    "787.2d101da8.chunk.js.map": "/looper/static/js/787.2d101da8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e61b510.css",
+    "static/js/main.2e3d59d0.js"
+  ]
+}

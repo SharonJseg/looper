@@ -1,5 +1,7 @@
 # Moveo coding task - Loop machine
 
+![Moveo Loop Machine](https://drive.google.com/uc?export=view&id=1DSTgcscy2PHrEN2auW_80ft1N9CdH7J7)
+
 Created a page with 8 rows, each row is a channel representing
 an audio loop.
 

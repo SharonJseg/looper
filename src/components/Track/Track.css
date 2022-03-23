@@ -36,38 +36,39 @@
 }
 
 .track__item:first-child .track__details {
-  border-radius: 0 15px 0 0;
+  border-radius: 0 35px 0 0;
 }
 
 .track__item:last-child .track__details {
-  border-radius: 0 0 15px 0;
+  border-radius: 0 0 35px 0;
 }
 
 .track__details {
   display: flex;
   align-items: center;
-  padding: 12px 15px;
+  padding: 15px 15px;
   min-width: 150px;
   background-color: #1d1d1dbe;
   color: var(--clr-background);
 }
 
-.track__details:nth-of-type(1) {
-  /* border-radius: 15px; */
-}
-
 .track__mute {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-right: 10px;
   background: none;
-  /* background-color: var(--clr-background); */
   border: 1px solid #fff;
   height: 30px;
   width: 30px;
-  border-radius: 50%;
+  border-radius: 25%;
   color: var(--clr-background);
   cursor: pointer;
+}
+
+.track__mute:hover {
+  color: var(--clr-base2-lighter);
+  border: 1px solid var(--clr-base2-lighter);
 }
 
 .track__name {

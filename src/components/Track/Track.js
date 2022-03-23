@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Track.css';
 import { IoVolumeHigh } from 'react-icons/io5';
 import { IoVolumeMute } from 'react-icons/io5';
 
 function Track({ onMute, track }) {
+  const [mute, setIsMute] = useState(false);
+
   const toggleMute = () => {
+    setIsMute(() => !mute);
     onMute(track.audio);
   };
 
@@ -12,7 +15,7 @@ function Track({ onMute, track }) {
     <div className='track__container'>
       <div className='track__details'>
         <button className='track__mute' onClick={toggleMute}>
-          <IoVolumeMute size={30} />
+          {mute ? <IoVolumeHigh size={28} /> : <IoVolumeMute size={28} />}
         </button>
         <p className='track__name'>{track.name}</p>
       </div>

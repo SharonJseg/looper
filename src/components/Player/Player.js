@@ -80,6 +80,15 @@ const Player = () => {
 
   return (
     <section className='player'>
+      <input
+        className='player__range'
+        onChange={changeRange}
+        type='range'
+        min='0'
+        max='17'
+        defaultValue='0'
+        ref={progressBar}
+      />
       <TrackList tracks={TRACKS} onMute={toggleMute} />
       <Controls
         playPause={togglePlayPause}
@@ -88,15 +97,6 @@ const Player = () => {
         toggleLoop={toggleLoop}
         duration={duration}
         currentTime={currentTime}
-      />
-
-      <input
-        onChange={changeRange}
-        type='range'
-        min='0'
-        max='17'
-        defaultValue='0'
-        ref={progressBar}
       />
     </section>
   );

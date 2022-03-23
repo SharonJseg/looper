@@ -12,6 +12,7 @@
   --clr-base-darker: hsla(var(--clr-base), 45%, 35%);
   --clr-base-darkest: hsla(var(--clr-base), 45%, 25%);
   --clr-base2: 185;
+  --clr-base2-lighter: hsl(var(--clr-base2), 90%, 55%);
   --clr-base2-light: hsl(var(--clr-base2), 45%, 50%);
   --clr-base2-normal: hsla(var(--clr-base2), 45%, 38%);
   --clr-base2-darker: hsla(var(--clr-base2), 45%, 35%);

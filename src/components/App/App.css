@@ -6,9 +6,15 @@
   align-items: center;
   background-image: url(../../images/sq.svg);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: right top;
 }
 
 .main {
   width: 80vw;
+}
+
+.logo {
+  position: fixed;
+  top: 50px;
+  left: 50px;
 }

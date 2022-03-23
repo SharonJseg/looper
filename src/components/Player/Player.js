@@ -6,6 +6,7 @@ import Controls from '../Controls/Controls';
 
 const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [looping, setLooping] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -42,6 +43,8 @@ const Player = () => {
   };
 
   const toggleLoop = () => {
+    const prevValue = looping;
+    setLooping(!prevValue);
     TRACKS.forEach(({ audio }) => {
       audio.loop = !audio.loop;
     });
@@ -79,26 +82,32 @@ const Player = () => {
   };
 
   return (
-    <section className='player'>
-      <input
-        className='player__range'
-        onChange={changeRange}
-        type='range'
-        min='0'
-        max='17'
-        defaultValue='0'
-        ref={progressBar}
-      />
-      <TrackList tracks={TRACKS} onMute={toggleMute} />
-      <Controls
-        playPause={togglePlayPause}
-        isPlaying={isPlaying}
-        stopPlay={stopPlay}
-        toggleLoop={toggleLoop}
-        duration={duration}
-        currentTime={currentTime}
-      />
-    </section>
+    <>
+      <h1 className='player__title'>MOVEO LOOP MACHINE</h1>
+      <div className='player__container'>
+        <input
+          className={
+            isPlaying ? 'player__range' : 'player__range player__range_inactive'
+          }
+          onChange={changeRange}
+          type='range'
+          min='0'
+          max='17'
+          defaultValue='0'
+          ref={progressBar}
+        />
+        <TrackList tracks={TRACKS} onMute={toggleMute} />
+        <Controls
+          playPause={togglePlayPause}
+          isPlaying={isPlaying}
+          stopPlay={stopPlay}
+          toggleLoop={toggleLoop}
+          duration={duration}
+          currentTime={currentTime}
+          isLooping={looping}
+        />
+      </div>
+    </>
   );
 };
 

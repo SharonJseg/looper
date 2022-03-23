@@ -1,17 +1,30 @@
-.player {
+.player__title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.player__container {
   position: relative;
   overflow: hidden;
 }
 
 .player__range {
+  opacity: 1;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 120px;
   -webkit-appearance: none;
-  /* width: 71vw; */
-  width: 90%;
+  width: 85%;
   height: 480px;
   background: transparent;
+}
+
+.player__range_inactive {
+  opacity: 0.5;
+  transition: 0.2s ease;
 }
 
 .player__range::-webkit-slider-thumb {
@@ -47,4 +60,16 @@
   background: red;
   color: red;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .player__range {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .player__range {
+    width: 65%;
+  }
 }

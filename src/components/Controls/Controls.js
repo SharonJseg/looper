@@ -20,21 +20,37 @@ const Controls = ({
   stopPlay,
   toggleLoop,
   currentTime,
-  duration,
+  isLooping,
+  // duration,
 }) => {
   return (
     <div className='controls'>
-      <button onClick={playPause}>
-        {isPlaying ? <IoPause /> : <IoPlay />}
-      </button>
-      <button onClick={stopPlay}>
-        <IoStop />
-      </button>
-      <button className='loop' onClick={toggleLoop}>
-        <IoRepeat />
-      </button>
-      <div>{calculateTime(currentTime)}</div>
-      <div>{(!isNaN(duration) && calculateTime(duration)) || '00:00'}</div>
+      <div className='controls__button-container'>
+        <button
+          className={
+            isPlaying ? 'controls__button playing' : 'controls__button'
+          }
+          onClick={playPause}
+        >
+          {isPlaying ? <IoPause /> : <IoPlay />}
+        </button>
+        <button className='controls__button' onClick={stopPlay}>
+          <IoStop />
+        </button>
+        <button
+          className={
+            !isLooping ? 'controls__button' : 'controls__button active'
+          }
+          onClick={toggleLoop}
+        >
+          <IoRepeat />
+        </button>
+      </div>
+      <div className='controls__time-container'>
+        <div className='controls__time'>{calculateTime(currentTime)}</div>
+        {/* used the lower div to debugg time left */}
+        {/* <div>{(!isNaN(duration) && calculateTime(duration)) || '00:00'}</div> */}
+      </div>
     </div>
   );
 };
